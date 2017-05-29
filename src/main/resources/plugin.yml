@@ -1,0 +1,99 @@
+name: ${project.name}
+version: ${project.version}
+author: Challenger2
+authors: [Challenger2]
+description: ${project.description}
+website: ${project.url}
+main: nu.nerd.Mjolnir.MjolnirPlugin
+softdepend: [WorldGuard, ProtocolLib]
+
+permissions:
+  mjolnir.*:
+    description: Give access to all Mjolnir commands.
+    default: op
+    children:
+      mjolnir.admin: true
+      mjolnir.striket: true
+      mjolnir.striketrg: true
+      mjolnir.thor: true
+      mjolnir.thorrg: true
+      mjolnir.explode: true
+      mjolnir.explodeany: true
+      mjolnir.ladycalin: true
+      mjolnir.armageddon: true
+
+  mjolnir.admin:
+    description: Permission to administer the plugin.
+    default: op
+
+  mjolnir.striket:
+    description: Permission to use /striket.
+    default: op
+
+  mjolnir.striketrg:
+    description: Permission to use /striketrg.
+    default: op
+
+  mjolnir.thor:
+    description: Permission to use /thor.
+    default: op
+
+  mjolnir.thorrg:
+    description: Permission to use /thorrg.
+    default: op
+
+  mjolnir.explode:
+    description: Permission to use /explode.
+    default: op
+
+  mjolnir.explodeany:
+    description: Permission to use /explode <player> form.
+    default: op
+
+  mjolnir.ladycalin:
+    description: Permission to use /ladycalin.
+    default: op
+
+  mjolnir.armageddon:
+    description: Permission to use /armageddon.
+    default: op
+
+commands:
+  striket:
+    description: Call down lightning upon thy enemy.
+    permission: mjolnir.striket
+    usage: |
+      /<command> <player>: Call down lightning upon thy enemy.
+
+  striketrg:
+    description: /striket everyone in a region.
+    permission: mjolnir.striketrg
+    aliases: [striketregion]
+    usage: |
+      /<command> <region> [<message>]: /striket everyone in a region.
+
+  thor:
+    description: Call down lightning and kill a player.
+    permission: mjolnir.thor
+    usage: |
+      /<command> <player> [<message>]: Call down lightning and kill a player.
+
+  thorrg:
+    description: /thor all players in a named region.
+    permission: mjolnir.thorrg
+    aliases: [thorregion]
+    usage: |
+      /<command> <region> [<message>]: /thor everyone in a region
+
+  explode:
+    description: /explode oneself.
+    permission: mjolnir.explode
+    usage: |
+      /<command> [<player>]: Blow yourself up.
+
+  ladycalin:
+    description: Call /striket on everyone.
+    permission: mjolnir.ladycalin
+    usage: |
+      /<command>: Call /striket on everyone.
+

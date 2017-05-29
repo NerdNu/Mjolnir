@@ -1,0 +1,9 @@
+# Things to ignore
+Thumbs.db
+
+/.classpath
+/.project
+/.settings
+/target/
+
+

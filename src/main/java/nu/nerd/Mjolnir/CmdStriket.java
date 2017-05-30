@@ -21,9 +21,11 @@ public class CmdStriket implements CommandExecutor {
         this.plugin = plugin;
     }
 
+    /**
+     * USAGE: /striket
+     */
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label,
-            String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!(sender instanceof Player)) {
             sender.sendMessage(ChatColor.RED + "Only players can haz the powerz of striket.");
@@ -31,8 +33,14 @@ public class CmdStriket implements CommandExecutor {
         }
         Player player = (Player)sender;
         
+        // Check args
+        if (args.length != 0) {
+            sender.sendMessage(ChatColor.RED + "USAGE: /striket");
+            return true;
+        }
+        
         // Get the block the player is looking at, using the same search distance as Command Helper.
-        // We cast the null to call the correct variant of getTargetBlock.
+        // We cast the null to call the correct overload of getTargetBlock.
         Block block = player.getTargetBlock((Set<Material>)null, 10000);
         if(block == null) {
             player.sendMessage(ChatColor.RED + "No block in sight, or block too far.");

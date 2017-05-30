@@ -21,6 +21,7 @@ permissions:
       mjolnir.explodeany: true
       mjolnir.ladycalin: true
       mjolnir.armageddon: true
+      mjolnir.excalibur: true
 
   mjolnir.admin:
     description: Permission to administer the plugin.
@@ -46,8 +47,8 @@ permissions:
     description: Permission to use /explode.
     default: op
 
-  mjolnir.explodeany:
-    description: Permission to use /explode <player> form.
+  mjolnir.explodeplayer:
+    description: Permission to use /explodeplayer <player>.
     default: op
 
   mjolnir.ladycalin:
@@ -56,6 +57,10 @@ permissions:
 
   mjolnir.armageddon:
     description: Permission to use /armageddon.
+    default: op
+
+  mjolnir.excalibur:
+    description: Permission to use /excalibur.
     default: op
 
 commands:
@@ -83,17 +88,36 @@ commands:
     permission: mjolnir.thorrg
     aliases: [thorregion]
     usage: |
-      /<command> <region> [<message>]: /thor everyone in a region
+      /<command> <region> [<message>]: /thor everyone in a region.
 
   explode:
     description: /explode oneself.
     permission: mjolnir.explode
     usage: |
-      /<command> [<player>]: Blow yourself up.
+      /<command>: Blow yourself up.
+
+  explodeplayer:
+    description: /explodeplayer <player>.
+    permission: mjolnir.explodeplayer
+    usage: |
+      /<command> [<player>]: Blow up a player.
 
   ladycalin:
     description: Call /striket on everyone.
     permission: mjolnir.ladycalin
+    aliases: [strikeall]
     usage: |
       /<command>: Call /striket on everyone.
 
+  armageddon:
+    description: Call down /thor on everyone.
+    permission: mjolnir.armageddon
+    aliases: [thorall]
+    usage: |
+      /<command> [<message>]: Call /thor on everyone
+
+  excalibur:
+    description: Area effect total destruction.
+    permission: mjolnir.excalibur
+    usage: |
+      /<command>: Complete destruction of anything you look at.

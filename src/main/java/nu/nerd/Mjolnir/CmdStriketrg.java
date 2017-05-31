@@ -41,18 +41,12 @@ public class CmdStriketrg implements CommandExecutor {
         // Check args
         if (args.length < 1) {
             sender.sendMessage(ChatColor.RED + "USAGE: /striketrg <region> [<message>]");
+            return true;
         }
         
         // Parse arguments
         String regionName = args[0];
-        String msg = null;
-        for(int i = 1; i <args.length; i++) {
-            if (msg == null) {
-                msg = args[i];
-            } else {
-                msg = msg + " " + args[i];
-            }
-        }
+        String msg = Util.Msgify(1, args);
         
         // Acquire the region of interest
         RegionManager rm = wg.getRegionManager(player.getWorld());
@@ -64,6 +58,9 @@ public class CmdStriketrg implements CommandExecutor {
         
         // Now call lightning on everyone!
         for(Player selectedPlayer : plugin.getServer().getOnlinePlayers()) {
+            if(player == selectedPlayer) {
+                continue;
+            }
             int x = selectedPlayer.getLocation().getBlockX();
             int y = selectedPlayer.getLocation().getBlockY();
             int z = selectedPlayer.getLocation().getBlockZ();

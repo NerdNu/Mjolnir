@@ -1,18 +1,15 @@
 package nu.nerd.Mjolnir;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.World;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.MaterialData;
-
-
-import net.md_5.bungee.api.ChatColor;
 
 /**
  * Utility functions
@@ -48,7 +45,7 @@ public class Util {
     /**
      * Play an explosion animation on a player.
      * 
-     * @param entity The player to explode.
+     * @param entity The living entity to explode.
      */
     public static void Explode(LivingEntity entity, boolean playSound) {
         
@@ -65,6 +62,27 @@ public class Util {
         w.spawnParticle(Particle.BLOCK_DUST, x, y, z, 256, 1.0, 2.0, 1.0, 0.0, new MaterialData(Material.REDSTONE_BLOCK));
         w.spawnParticle(Particle.ITEM_CRACK, x, y, z, 256, 0.16, 0.12, 0.16, 0.20, new ItemStack(Material.PORK));
         entity.setHealth(0);
+    }
+    
+    /**
+     * Turn the end of a parameter list into a string with color
+     * code substitution
+     * 
+     * @param start index in the argument array to start stringification
+     * @param args An array of arguments to stringify
+     */
+    public static String Msgify(int start, String[] args) {
+        if (start < 0 || start >= args.length) {
+            return null;
+        }
+        StringBuilder builder = new StringBuilder(args[start]);
+        start++;
+        for (; start < args.length; start++) {
+            builder.append(' ');
+            builder.append(args[start]);
+        }
+        return ChatColor.translateAlternateColorCodes('&', builder.toString());
+
     }
 
 }

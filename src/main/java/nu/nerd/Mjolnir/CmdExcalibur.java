@@ -35,14 +35,7 @@ public class CmdExcalibur implements CommandExecutor {
         Player player = (Player)sender;
         
         // Parse arguments
-        String msg = null;
-        for(int i = 0; i <args.length; i++) {
-            if (msg == null) {
-                msg = args[i];
-            } else {
-                msg = msg + " " + args[i];
-            }
-        }
+        String msg = Util.Msgify(0, args);
 
         // Get the block the player is looking at, using the same search distance as Command Helper.
         // We cast the null to call the correct overload of getTargetBlock.

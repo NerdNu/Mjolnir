@@ -15,17 +15,20 @@ public class CmdExplodePlayer implements CommandExecutor {
     }
 
     /**
-     * USAGE: /explodeplayer
+     * USAGE: /explodeplayer <player> [<message>]: Explode thine enemy.
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // Check args
-        if (args.length != 1) {
-            sender.sendMessage(ChatColor.RED + "USAGE: /explodeplayer <player>");
+        if (args.length < 1) {
+            sender.sendMessage(ChatColor.RED + "USAGE: /explodeplayer <player> [<message>]: Explode thine enemy.");
             return true;
         }
         
+        // Parse arguments
         String playerName = args[0];
+        String msg = Util.Msgify(1, args);
+
         Player player = plugin.getServer().getPlayer(playerName);
         if(player == null) {
             sender.sendMessage(ChatColor.RED + "Player not found.");
@@ -34,6 +37,10 @@ public class CmdExplodePlayer implements CommandExecutor {
         
         Util.Explode(player, true);
         plugin.getServer().broadcastMessage("* " + player.getName() + " explodes");
+        
+        if(msg != null) {
+            player.sendMessage(ChatColor.RED + msg);
+        }
 
         return true;
     }

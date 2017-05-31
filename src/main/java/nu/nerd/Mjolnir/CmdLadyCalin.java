@@ -20,22 +20,16 @@ public class CmdLadyCalin implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // Parse arguments
-        String msg = null;
-        for(int i = 0; i <args.length; i++) {
-            if (msg == null) {
-                msg = args[i];
-            } else {
-                msg = msg + " " + args[i];
-            }
-        }
+        String msg = Util.Msgify(0, args);
         
         // Now call lightning on everyone!
         for(Player selectedPlayer : plugin.getServer().getOnlinePlayers()) {
             selectedPlayer.getWorld().strikeLightningEffect(selectedPlayer.getEyeLocation());
-            if(msg != null) {
-                selectedPlayer.sendMessage(ChatColor.RED + msg);
-            }
         }
+        if(msg != null) {
+            plugin.getServer().broadcastMessage(ChatColor.RED + msg);
+        }
+
         return true;
     }
 

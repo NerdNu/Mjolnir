@@ -36,14 +36,7 @@ public class CmdThor implements CommandExecutor {
         
         // Parse arguments
         String playerName = args[0];
-        String msg = null;
-        for(int i = 1; i <args.length; i++) {
-            if (msg == null) {
-                msg = args[i];
-            } else {
-                msg = msg + " " + args[i];
-            }
-        }
+        String msg = Util.Msgify(1, args);
         
         // Acquire target
         Player player = plugin.getServer().getPlayer(playerName);

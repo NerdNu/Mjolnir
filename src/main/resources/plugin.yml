@@ -5,11 +5,11 @@ authors: [Challenger2]
 description: ${project.description}
 website: ${project.url}
 main: nu.nerd.Mjolnir.MjolnirPlugin
-softdepend: [WorldGuard, ProtocolLib]
+softdepend: [WorldGuard]
 
 permissions:
   mjolnir.*:
-    description: Give access to all Mjolnir commands.
+    description: Give access to all Mjolnir commands, save Excalibur.
     default: op
     children:
       mjolnir.admin: true
@@ -18,10 +18,9 @@ permissions:
       mjolnir.thor: true
       mjolnir.thorrg: true
       mjolnir.explode: true
-      mjolnir.explodeany: true
+      mjolnir.explodeplayer: true
       mjolnir.ladycalin: true
       mjolnir.armageddon: true
-      mjolnir.excalibur: true
 
   mjolnir.admin:
     description: Permission to administer the plugin.
@@ -68,7 +67,7 @@ commands:
     description: Call down lightning upon thy enemy.
     permission: mjolnir.striket
     usage: |
-      /<command> <player>: Call down lightning upon thy enemy.
+      /<command>: Call down lightning upon thy enemy.
 
   striketrg:
     description: /striket everyone in a region.
@@ -97,17 +96,17 @@ commands:
       /<command>: Blow yourself up.
 
   explodeplayer:
-    description: /explodeplayer <player>.
+    description: Explode thine enemy.
     permission: mjolnir.explodeplayer
     usage: |
-      /<command> [<player>]: Blow up a player.
+      /<command> <player> [<message>]: Explode thine enemy.
 
   ladycalin:
     description: Call /striket on everyone.
     permission: mjolnir.ladycalin
     aliases: [strikeall]
     usage: |
-      /<command>: Call /striket on everyone.
+      /<command> [<message>]: Call /striket on everyone.
 
   armageddon:
     description: Call down /thor on everyone.
@@ -120,4 +119,4 @@ commands:
     description: Area effect total destruction.
     permission: mjolnir.excalibur
     usage: |
-      /<command>: Complete destruction of anything you look at.
+      /<command> [<message>]: Complete destruction of anything you look at.

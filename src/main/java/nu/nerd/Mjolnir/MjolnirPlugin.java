@@ -36,7 +36,7 @@ public class MjolnirPlugin extends JavaPlugin {
         this.getCommand("thorrg").setExecutor(new CmdThorrg(this));
         this.getCommand("explode").setExecutor(new CmdExplode(this));
         this.getCommand("explodeplayer").setExecutor(new CmdExplodePlayer(this));
-        this.getCommand("ladycalin").setExecutor(new CmdLadyCalin(this));
+        this.getCommand("ladycailin").setExecutor(new CmdLadyCailin(this));
         this.getCommand("armageddon").setExecutor(new CmdArmageddon(this));
         this.getCommand("excalibur").setExecutor(new CmdExcalibur(this));
         

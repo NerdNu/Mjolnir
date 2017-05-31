@@ -6,16 +6,16 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CmdLadyCalin implements CommandExecutor {
+public class CmdLadyCailin implements CommandExecutor {
 
     private MjolnirPlugin plugin;
     
-    public CmdLadyCalin(MjolnirPlugin plugin) {
+    public CmdLadyCailin(MjolnirPlugin plugin) {
         this.plugin = plugin;
     }
 
     /**
-     * USAGE: /ladycalin [<message>]
+     * USAGE: /ladycailin [<message>]
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

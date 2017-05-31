@@ -19,7 +19,7 @@ permissions:
       mjolnir.thorrg: true
       mjolnir.explode: true
       mjolnir.explodeplayer: true
-      mjolnir.ladycalin: true
+      mjolnir.ladycailin: true
       mjolnir.armageddon: true
 
   mjolnir.admin:
@@ -50,8 +50,8 @@ permissions:
     description: Permission to use /explodeplayer <player>.
     default: op
 
-  mjolnir.ladycalin:
-    description: Permission to use /ladycalin.
+  mjolnir.ladycailin:
+    description: Permission to use /ladycailin.
     default: op
 
   mjolnir.armageddon:
@@ -101,9 +101,9 @@ commands:
     usage: |
       /<command> <player> [<message>]: Explode thine enemy.
 
-  ladycalin:
+  ladycailin:
     description: Call /striket on everyone.
-    permission: mjolnir.ladycalin
+    permission: mjolnir.ladycailin
     aliases: [strikeall]
     usage: |
       /<command> [<message>]: Call /striket on everyone.
